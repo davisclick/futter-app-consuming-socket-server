@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('BandNames', style: TextStyle( color: Colors.black87 ) ),
+        title: Text('Band Names', style: TextStyle( color: Colors.black87 ) ),
         backgroundColor: Colors.white,
         elevation: 1,
         actions: [
