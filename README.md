@@ -1,4 +1,4 @@
-# Flutter App With Socket Server
+# Flutter App Consuming Socket Server
 
 [![pub package](https://img.shields.io/pub/v/keyboard_actions.svg)](https://pub.dartlang.org/packages/keyboard_actions)
 
@@ -22,4 +22,10 @@ dependencies:
 ```
 
 You should then run `flutter packages upgrade` or update your packages in IntelliJ.
+
+Clone the repository with the NodeJS Socket Server: https://github.com/davisclick/flutter-socket.io-server
+
+
+
+
 
