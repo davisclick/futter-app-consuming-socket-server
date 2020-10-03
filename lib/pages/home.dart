@@ -161,6 +161,8 @@ class _HomePageState extends State<HomePage> {
 
     if( name.length > 1){
      
+     final socketService = Provider.of<SocketService>(context, listen: false);
+     socketService.emit('add-band', { 'name': name } );
     }
     Navigator.pop(context);
   }
