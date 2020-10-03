@@ -5,8 +5,6 @@ This app implements:
 - Socket IO Client
 - Pie Chart
 
-## Getting Started
-
 ## Demo
 
 ![flutter-socket-server](./external_media/flutter-socket-server.gif)
