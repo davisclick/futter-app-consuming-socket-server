@@ -25,7 +25,7 @@ class SocketService with ChangeNotifier{
   void _initConfig(){
 
     // Dart client
-    this._socket  = IO.io('http://192.168.0.2:3000/',{
+    this._socket  = IO.io('http://192.168.0.2:3000/',{ //Change for your IP or localhost
       'transports' : ['websocket'],
       'autoConnect': true,
     });
@@ -40,10 +40,6 @@ class SocketService with ChangeNotifier{
       notifyListeners();
     });
 
-    // socket.on('nuevo-mensaje', ( payload ) {
-    //  print( 'nuevo-mensaje:');
-    //   print( 'nombre: ' + payload['nombre']);
-    // });
   }
 
 }

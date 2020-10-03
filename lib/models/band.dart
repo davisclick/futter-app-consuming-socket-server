@@ -1,5 +1,3 @@
-
-
 class Band{
 
   String id;

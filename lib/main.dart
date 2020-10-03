@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:band_names/services/socket_service.dart';
 
+import 'package:band_names/services/socket_service.dart';
 import 'package:band_names/pages/status.dart';
 import 'package:band_names/pages/home.dart';
-
-
 
 void main() => runApp(MyApp());
  
@@ -19,7 +17,7 @@ class MyApp extends StatelessWidget {
         child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Material App',
-        initialRoute: 'home',
+        initialRoute: 'home', //Change the initial route
         routes: {
           'home': ( _ ) =>HomePage(),
           'status': ( _ ) => StatusPage()

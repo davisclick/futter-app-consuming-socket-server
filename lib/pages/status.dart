@@ -1,6 +1,7 @@
-import 'package:band_names/services/socket_service.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
+
+import 'package:band_names/services/socket_service.dart';
 
 
 class StatusPage extends StatelessWidget {
@@ -21,9 +22,9 @@ class StatusPage extends StatelessWidget {
      ),
      floatingActionButton: FloatingActionButton(
        onPressed: (){
-         socketService.emit('emitir-mensaje', { 
-           'nombre': 'Flutter', 
-           'mensaje' : 'Hola desde Flutter' 
+         socketService.emit('flutter-message', { 
+           'name': 'Flutter', 
+           'message' : 'Hello from Flutter!' 
           });
        },
        child: Icon( Icons.message ),

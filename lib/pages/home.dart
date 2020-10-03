@@ -1,15 +1,14 @@
 import 'dart:io';
-
-import 'package:band_names/services/socket_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pie_chart/pie_chart.dart';
+
+import 'package:band_names/services/socket_service.dart';
 import 'package:band_names/models/band.dart';
 import 'package:provider/provider.dart';
 
 
-
 class HomePage extends StatefulWidget {
-
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -19,7 +18,6 @@ class _HomePageState extends State<HomePage> {
 
   List<Band> bands = [];
 
-  
   @override
   void initState() { 
 
@@ -38,8 +36,7 @@ class _HomePageState extends State<HomePage> {
 
       setState(() {
         
-  });
-
+    });
   }
 
   @override
@@ -68,9 +65,17 @@ class _HomePageState extends State<HomePage> {
           )
         ],
       ),
-      body: ListView.builder(
-        itemCount: bands.length,
-        itemBuilder:  ( context, i ) => _bandTile(bands[i])
+      body: Column(
+        children: [
+          
+          bands.length > 0 ? _showGraph() : Container(),
+          Expanded(
+              child: ListView.builder(
+              itemCount: bands.length,
+              itemBuilder:  ( context, i ) => _bandTile(bands[i])
+            ),
+          ),
+        ]
       ),
       floatingActionButton: FloatingActionButton(
         onPressed:() { addNewBand(); },
@@ -166,4 +171,55 @@ class _HomePageState extends State<HomePage> {
     Navigator.pop(context);
   }
 
+  
+  _showGraph(){
+
+    Map<String, double> dataMap = new Map();
+
+    bands.forEach((band) {
+      dataMap.putIfAbsent(band.name, () => band.votes.toDouble());
+    });
+
+    final  List<Color> colorList =[
+      Colors.red,
+      Colors.green,
+      Colors.blue,
+      Colors.yellow,
+    ];
+
+    return Container(
+      padding: EdgeInsets.only( top: 10 ),
+      width: double.infinity,
+      height: 200,
+      child: PieChart(
+        dataMap: dataMap,
+        animationDuration: Duration(milliseconds: 800),
+        chartLegendSpacing: 32,
+        chartRadius: MediaQuery.of(context).size.width / 3.2,
+        colorList: colorList,
+        initialAngleInDegree: 0,
+        chartType: ChartType.ring,
+        ringStrokeWidth: 32,
+        centerText: "Votes",
+        legendOptions: LegendOptions(
+          showLegendsInRow: false,
+          legendPosition: LegendPosition.right,
+          showLegends: true,
+          legendShape: BoxShape.circle, 
+          legendTextStyle: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        chartValuesOptions: ChartValuesOptions(
+          showChartValueBackground: true,
+          //showChartValues: true,
+          showChartValuesInPercentage: false,
+          showChartValuesOutside: false,
+        ),
+      )
+    );
+
+  }
+
 }
+
