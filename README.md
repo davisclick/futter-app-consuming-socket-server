@@ -7,6 +7,12 @@ The purpose of this apps is implement:
 - Socket IO Client
 - Pie Chart
 
+## Features
+- Add new item
+- Delete item
+- Vote and emit the message
+- Know the server status
+
 ## Demo
 
 ![flutter-socket-server](./external_media/flutter-socket-server.gif)
